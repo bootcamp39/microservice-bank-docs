@@ -1,0 +1,186 @@
+{
+	"info": {
+		"_postman_id": "25d33a3b-bc0e-4448-b30d-0ea07d4f63b6",
+		"name": "Microservice Credit Accounts",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Listar todos los créditos",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8083/credit-card-accounts/list-all",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8083",
+					"path": [
+						"credit-card-accounts",
+						"list-all"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Crear crédito personal",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"personCode\":\"5db3e3ed-53d4-454e-af88-a0473c2ca670\",\r\n\t\"accountType\":\"PERSONAL_CREDIT\",\r\n    \"creditAmount\":\"1000\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8083/credit-accounts/create-personal-credit",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8083",
+					"path": [
+						"credit-accounts",
+						"create-personal-credit"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Crear crédito empresarial",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"personCode\":\"c3962697-b934-445b-bfbb-d5bb79ecb039\",\r\n\t\"accountType\":\"ENTERPRISE_CREDIT\",\r\n\t\"creditAmount\":\"1000\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8083/credit-accounts/create-personal-credit",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8083",
+					"path": [
+						"credit-accounts",
+						"create-personal-credit"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Listar todas las tarjetas de credito",
+			"request": {
+				"method": "GET",
+				"header": []
+			},
+			"response": []
+		},
+		{
+			"name": "Crear tarjeta de crédito personal",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"personCode\":\"5db3e3ed-53d4-454e-af88-a0473c2ca670\",\r\n\t\"accountType\":\"PERSONAL_CREDIT\",\r\n    \"creditAmountLimit\":\"1000\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8083/credit-card-accounts/create-personal-credit-card",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8083",
+					"path": [
+						"credit-card-accounts",
+						"create-personal-credit-card"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Crear tarjeta de crédito empresarial",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"personCode\":\"c3962697-b934-445b-bfbb-d5bb79ecb039\",\r\n\t\"accountType\":\"ENTERPRISE_CREDIT\",\r\n\t\"creditAmountLimit\":\"1000\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8083/credit-card-accounts/create-enterprise-credit-card",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8083",
+					"path": [
+						"credit-card-accounts",
+						"create-enterprise-credit-card"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Verificar si tiene tarjeta de crédito",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8083/credit-card-accounts/haveCreditCard/",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8083",
+					"path": [
+						"credit-card-accounts",
+						"haveCreditCard",
+						""
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}

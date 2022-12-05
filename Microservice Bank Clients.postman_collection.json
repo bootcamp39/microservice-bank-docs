@@ -1,0 +1,129 @@
+{
+	"info": {
+		"_postman_id": "0156d940-fd45-4aca-9c37-9f1375bd4c80",
+		"name": "Microservice Bank Clients",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Listado de clientes",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8081/person/list-all",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8081",
+					"path": [
+						"person",
+						"list-all"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Guardar un cliente natural",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"phone\": \"987654321\",\r\n    \"email\": \"example@gmail.com\",\r\n    \"address\": \"SAN JUAN DE MIRAFLORES\",\r\n    \"firstName\": \"JHON HENRY\",\r\n    \"lastName\": \"DELGADO LIZARBE\",\r\n    \"typeDocument\": \"DNI\",\r\n    \"numberDocument\": \"70498367\",\r\n    \"birthday\": \"1993-10-23T17:25:29.836+00:00\",\r\n    \"personType\":\"NATURAL_PERSON\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8081/person/store",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8081",
+					"path": [
+						"person",
+						"store"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Guardar un cliente empresa",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"phone\": \"987654321\",\r\n    \"email\": \"example@gmail.com\",\r\n    \"address\": \"SAN JUAN DE MIRAFLORES\",\r\n    \"companyName\": \"EXAMPLE EIRL\",\r\n    \"ruc\": \"1050598455\",\r\n    \"personType\":\"LEGAL_PERSON\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8081/person/store",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8081",
+					"path": [
+						"person",
+						"store"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Obtener por código",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8081/person/find/c3962697-b934-445b-bfbb-d5bb79ecb039",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8081",
+					"path": [
+						"person",
+						"find",
+						"c3962697-b934-445b-bfbb-d5bb79ecb039"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Obtener tipo de cliente",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8081/person/findType/c3962697-b934-445b-bfbb-d5bb79ecb039",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8081",
+					"path": [
+						"person",
+						"findType",
+						"c3962697-b934-445b-bfbb-d5bb79ecb039"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}

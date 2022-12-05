@@ -1,0 +1,322 @@
+{
+	"info": {
+		"_postman_id": "f8bc7f4b-180f-460a-96ec-77cf7f84d861",
+		"name": "Microservice Passive Account",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Listar cuentas pasivas",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8090/passive-accounts/list-passive-accounts",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8090",
+					"path": [
+						"passive-accounts",
+						"list-passive-accounts"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Obtener por codigo de cliente",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8090/passive-accounts/find/123456",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8090",
+					"path": [
+						"passive-accounts",
+						"find",
+						"123456"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Guardar cuenta ahorro cliente natural",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"availableMovementsPerMonthAvailable\": \"5\",\r\n    \"personCode\": \"d2dabcb7-6014-496b-a0a1-a2ea1586830b\",\r\n    \"accountType\": \"SAVING_ACCOUNT\",\r\n    \"personType\": \"NATURAL_PERSON\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8090/passive-accounts/store",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8090",
+					"path": [
+						"passive-accounts",
+						"store"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Guardar cuenta corriente cliente natural",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"accountType\": \"CURRENT_ACCOUNT\",\r\n    \"personType\": \"NATURAL_PERSON\",\r\n    \"personCode\": \"d2dabcb7-6014-496b-a0a1-a2ea1586830b\",\r\n    \"comission\": \"5.00\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8082/passive-accounts/store",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8082",
+					"path": [
+						"passive-accounts",
+						"store"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Guardar cuenta de plazo fijo cliente natural",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"accountType\": \"FIX_TERM_ACCOUNT\",\r\n    \"personType\": \"NATURAL_PERSON\",\r\n    \"personCode\": \"d2dabcb7-6014-496b-a0a1-a2ea1586830b\",\r\n    \"dayMovementAvailable\": \"15\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8082/passive-accounts/store",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8082",
+					"path": [
+						"passive-accounts",
+						"store"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Guardar cuenta corriente cliente empresa",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"accountType\": \"CURRENT_ACCOUNT\",\r\n    \"personType\": \"LEGAL_PERSON\",\r\n    \"personCode\": \"d2dabcb7-6014-496b-a0a1-a2ea1586830b\",\r\n    \"comission\": \"5.00\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8082/passive-accounts/store",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8082",
+					"path": [
+						"passive-accounts",
+						"store"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Agregar Titular a cuenta corriente",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"passiveAccountCode\": \"0f2aba62-ea54-4dab-95ca-01d93f3822a8\",\r\n    \"legalHolderType\":\"HOLDER\",\r\n    \"names\": \"Roberto Sanchez\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8082/legal-holder/store",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8082",
+					"path": [
+						"legal-holder",
+						"store"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Agregar Firmante autorizado a cuenta corriente",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"passiveAccountCode\": \"0f2aba62-ea54-4dab-95ca-01d93f3822a8\",\r\n    \"legalHolderType\":\"AUTHORIZED_SIGNATORY\",\r\n    \"names\": \"Roberto Sanchez\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8082/legal-holder/store",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8082",
+					"path": [
+						"legal-holder",
+						"store"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Agregar movimiento de tipo retiro",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"passiveAccountCode\": \"0f2aba62-ea54-4dab-95ca-01d93f3822a8\",\r\n    \"movementType\":\"WITHDRAWAL\",\r\n    \"amount\": \"100.00\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8082/movement/store",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8082",
+					"path": [
+						"movement",
+						"store"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Agregar movimiento de tipo depósito",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"passiveAccountCode\": \"0f2aba62-ea54-4dab-95ca-01d93f3822a8\",\r\n    \"movementType\":\"DEPOSIT\",\r\n    \"amount\": \"100.00\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8082/movement/store",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8082",
+					"path": [
+						"movement",
+						"store"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Listar movimientos de una cuenta bancaria",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8082/movement/findAll/0f2aba62-ea54-4dab-95ca-01d93f3822a8",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8082",
+					"path": [
+						"movement",
+						"findAll",
+						"0f2aba62-ea54-4dab-95ca-01d93f3822a8"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Actuator",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8082/actuator",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8082",
+					"path": [
+						"actuator"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
