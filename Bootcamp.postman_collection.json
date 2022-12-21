@@ -1,0 +1,458 @@
+{
+	"info": {
+		"_postman_id": "527c895a-f1c4-452b-b478-6687677bd476",
+		"name": "Bootcamp",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "21007862"
+	},
+	"item": [
+		{
+			"name": "Semana 1",
+			"item": [
+				{
+					"name": "Listado clientes",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8081/person/getCustomers",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8081",
+							"path": [
+								"person",
+								"getCustomers"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Crear cliente natural",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"firstName\": \"MARIA\",\r\n\t\"lastName\": \"SUAREZ\",\r\n\t\"typeDocument\": \"CE\",\r\n\t\"numberDocument\": \"263656221112\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8081/person/saveCustomerPersonal",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8081",
+							"path": [
+								"person",
+								"saveCustomerPersonal"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Crear cliente empresa",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"ruc\": \"20704983644\",\r\n\t\"companyName\": \"CONSULTORAS IT SAC\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8081/person/saveCustomerEnterprise",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8081",
+							"path": [
+								"person",
+								"saveCustomerEnterprise"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Crear crédito personal",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"personCode\": \"09f44b07-b584-46b7-b5fc-3879ecff7089\",\r\n\t\"creditAmountLimit\": 1000.00,\r\n\t\"creditAmountAvailable\": 1000.00\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8083/credit/saveCreditPersonal",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8083",
+							"path": [
+								"credit",
+								"saveCreditPersonal"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Crear crédito empresarial",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"personCode\": \"09f44b07-b584-46b7-b5fc-3879ecff7089\",\r\n\t\"debtAmount\": 1000.00\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8083/credit/saveCreditEnterprise",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8083",
+							"path": [
+								"credit",
+								"saveCreditEnterprise"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Crear tarjeta crédito personal",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"personCode\": \"70a8a9fa-0d09-4115-a1d5-3a3c77abc5d1\",\r\n\t\"creditAmountLimit\": 1000.00,\r\n\t\"creditAmountAvailable\": 1000.00\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8083/credit/saveCreditCardPersonal",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8083",
+							"path": [
+								"credit",
+								"saveCreditCardPersonal"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Crear tarjeta crédito empresarial",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"personCode\": \"87aa6cf9-6593-486b-bdff-14347762be46\",\r\n\t\"creditAmountLimit\": 3000.00,\r\n\t\"creditAmountAvailable\": 3000.00\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8083/credit/saveCreditCardEnterprise",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8083",
+							"path": [
+								"credit",
+								"saveCreditCardEnterprise"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Registrar pago crédito",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"personCode\": \"09f44b07-b584-46b7-b5fc-3879ecff7089\",\r\n\t\"creditNumber\": \"2dc73903-a330-410c-b5e7-e1c13d3b3b1c\",\r\n\t\"amount\": 200.00\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8083/creditMovements/paymentCredit",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8083",
+							"path": [
+								"creditMovements",
+								"paymentCredit"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Registrar pago tarjeta de crédito",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"personCode\": \"70a8a9fa-0d09-4115-a1d5-3a3c77abc5d1\",\r\n\t\"creditNumber\": \"a21b82f3-d64c-45b0-845e-2e99d81f83e0\",\r\n\t\"amount\": 100\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8083/creditMovements/paymentCreditCard",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8083",
+							"path": [
+								"creditMovements",
+								"paymentCreditCard"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Cargar consumo tarjeta de crédito",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"personCode\": \"70a8a9fa-0d09-4115-a1d5-3a3c77abc5d1\",\r\n\t\"creditNumber\": \"a21b82f3-d64c-45b0-845e-2e99d81f83e0\",\r\n\t\"amount\": 500\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8083/creditMovements/consumeCreditCard",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8083",
+							"path": [
+								"creditMovements",
+								"consumeCreditCard"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Consultar saldo disponible en tarjeta de crédito",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8083/credit/showAvailableBalanceCreditCard/4c89911a-518c-479e-b256-2d8ab1b4b819",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8083",
+							"path": [
+								"credit",
+								"showAvailableBalanceCreditCard",
+								"4c89911a-518c-479e-b256-2d8ab1b4b819"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Consultar movimientos del crédito",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8083/creditMovements/getAllCreditMovements/09f44b07-b584-46b7-b5fc-3879ecff7089",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8083",
+							"path": [
+								"creditMovements",
+								"getAllCreditMovements",
+								"09f44b07-b584-46b7-b5fc-3879ecff7089"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Consultar todo los movimientos de la tarjeta de crédito",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8083/creditMovements/getAllCreditCardMovements/70a8a9fa-0d09-4115-a1d5-3a3c77abc5d1",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8083",
+							"path": [
+								"creditMovements",
+								"getAllCreditCardMovements",
+								"70a8a9fa-0d09-4115-a1d5-3a3c77abc5d1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Crear cuenta bancaria AHORRO",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"personCode\": \"09f44b07-b584-46b7-b5fc-3879ecff7089\",\r\n    \"maximumTransactions\": 5\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8082/passive-accounts/saveSavingPersonalAccount",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8082",
+							"path": [
+								"passive-accounts",
+								"saveSavingPersonalAccount"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Crear cuenta bancaria CUENTA CORRIENTE",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n\t\"personCode\": \"70a8a9fa-0d09-4115-a1d5-3a3c77abc5d1\",\r\n\t\"maintenanceCommission\": 0.05,\r\n\t\"maximumTransactionsWithoutCommission\": 5\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8082/passive-accounts/saveCurrentPersonalAccount",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8082",
+							"path": [
+								"passive-accounts",
+								"saveCurrentPersonalAccount"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Crear cuenta bancaria CUENTA PLAZO FIJO",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n\t\"personCode\": \"73bd0cfd-a3f6-46af-8c72-09842a85d0e6\",\r\n\t\"dayMovementAvailable\": 15\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8082/passive-accounts/saveFixTermPersonalAccount",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8082",
+							"path": [
+								"passive-accounts",
+								"saveFixTermPersonalAccount"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Semana 2",
+			"item": []
+		},
+		{
+			"name": "Semana 3",
+			"item": []
+		},
+		{
+			"name": "Semana 4",
+			"item": []
+		}
+	]
+}
