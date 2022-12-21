@@ -23,14 +23,14 @@
 					}
 				},
 				"url": {
-					"raw": "http://localhost:8083/credit-card-accounts/list-all",
+					"raw": "http://localhost:8083/credit-accounts/list-all",
 					"protocol": "http",
 					"host": [
 						"localhost"
 					],
 					"port": "8083",
 					"path": [
-						"credit-card-accounts",
+						"credit-accounts",
 						"list-all"
 					]
 				}
@@ -99,7 +99,19 @@
 			"name": "Listar todas las tarjetas de credito",
 			"request": {
 				"method": "GET",
-				"header": []
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8083/credit-card-accounts/list-all",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8083",
+					"path": [
+						"credit-card-accounts",
+						"list-all"
+					]
+				}
 			},
 			"response": []
 		},
@@ -167,7 +179,7 @@
 				"method": "GET",
 				"header": [],
 				"url": {
-					"raw": "http://localhost:8083/credit-card-accounts/haveCreditCard/",
+					"raw": "http://localhost:8083/credit-card-accounts/haveCreditCard/5db3e3ed-53d4-454e-af88-a0473c2ca670",
 					"protocol": "http",
 					"host": [
 						"localhost"
@@ -176,7 +188,7 @@
 					"path": [
 						"credit-card-accounts",
 						"haveCreditCard",
-						""
+						"5db3e3ed-53d4-454e-af88-a0473c2ca670"
 					]
 				}
 			},

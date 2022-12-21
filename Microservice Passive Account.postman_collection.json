@@ -6,54 +6,13 @@
 	},
 	"item": [
 		{
-			"name": "Listar cuentas pasivas",
-			"request": {
-				"method": "GET",
-				"header": [],
-				"url": {
-					"raw": "http://localhost:8090/passive-accounts/list-passive-accounts",
-					"protocol": "http",
-					"host": [
-						"localhost"
-					],
-					"port": "8090",
-					"path": [
-						"passive-accounts",
-						"list-passive-accounts"
-					]
-				}
-			},
-			"response": []
-		},
-		{
-			"name": "Obtener por codigo de cliente",
-			"request": {
-				"method": "GET",
-				"header": [],
-				"url": {
-					"raw": "http://localhost:8090/passive-accounts/find/123456",
-					"protocol": "http",
-					"host": [
-						"localhost"
-					],
-					"port": "8090",
-					"path": [
-						"passive-accounts",
-						"find",
-						"123456"
-					]
-				}
-			},
-			"response": []
-		},
-		{
-			"name": "Guardar cuenta ahorro cliente natural",
+			"name": "Guardar cuenta corriente cliente natural local",
 			"request": {
 				"method": "POST",
 				"header": [],
 				"body": {
 					"mode": "raw",
-					"raw": "{\r\n    \"availableMovementsPerMonthAvailable\": \"5\",\r\n    \"personCode\": \"d2dabcb7-6014-496b-a0a1-a2ea1586830b\",\r\n    \"accountType\": \"SAVING_ACCOUNT\",\r\n    \"personType\": \"NATURAL_PERSON\"\r\n}",
+					"raw": "{\r\n    \"personCode\": \"2ffcf124-4a5a-4693-8f7b-75f5826e5009\",\r\n    \"accountAmount\": 1000.0,\r\n    \"accountBalance\": 1000.0,\r\n    \"maintenanceCommission\": 10.0,\r\n    \"transactionCommission\": 10.0,\r\n    \"maximumTransactionsWithoutCommission\": 10\r\n}",
 					"options": {
 						"raw": {
 							"language": "json"
@@ -61,15 +20,47 @@
 					}
 				},
 				"url": {
-					"raw": "http://localhost:8090/passive-accounts/store",
+					"raw": "http://localhost:8082/passive-accounts/saveCurrentPersonalAccount",
 					"protocol": "http",
 					"host": [
 						"localhost"
 					],
-					"port": "8090",
+					"port": "8082",
 					"path": [
 						"passive-accounts",
-						"store"
+						"saveCurrentPersonalAccount"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Guardar cuenta corriente cliente natural sin gateway",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"personCode\": \"2ffcf124-4a5a-4693-8f7b-75f5826e5009\",\r\n    \"accountAmount\": 1000.0,\r\n    \"accountBalance\": 1000.0,\r\n    \"maintenanceCommission\": 10.0,\r\n    \"transactionCommission\": 10.0,\r\n    \"maximumTransactionsWithoutCommission\": 10\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "passive-accounts.gmgkeqdbdmcseec6.eastus2.azurecontainer.io:8082/passive-accounts/saveCurrentPersonalAccount",
+					"host": [
+						"passive-accounts",
+						"gmgkeqdbdmcseec6",
+						"eastus2",
+						"azurecontainer",
+						"io"
+					],
+					"port": "8082",
+					"path": [
+						"passive-accounts",
+						"saveCurrentPersonalAccount"
 					]
 				}
 			},
@@ -82,7 +73,7 @@
 				"header": [],
 				"body": {
 					"mode": "raw",
-					"raw": "{\r\n    \"accountType\": \"CURRENT_ACCOUNT\",\r\n    \"personType\": \"NATURAL_PERSON\",\r\n    \"personCode\": \"d2dabcb7-6014-496b-a0a1-a2ea1586830b\",\r\n    \"comission\": \"5.00\"\r\n}",
+					"raw": "{\r\n    \"personCode\": \"2ffcf124-4a5a-4693-8f7b-75f5826e5009\",\r\n    \"accountAmount\": 1000.0,\r\n    \"accountBalance\": 1000.0,\r\n    \"maintenanceCommission\": 10.0,\r\n    \"transactionCommission\": 10.0,\r\n    \"maximumTransactionsWithoutCommission\": 10\r\n}",
 					"options": {
 						"raw": {
 							"language": "json"
@@ -90,15 +81,52 @@
 					}
 				},
 				"url": {
-					"raw": "http://localhost:8082/passive-accounts/store",
+					"raw": "http://bank-gateway.aafbf3cshufddrdt.eastus.azurecontainer.io:8090/passive-accounts/saveCurrentPersonalAccount",
 					"protocol": "http",
 					"host": [
-						"localhost"
+						"bank-gateway",
+						"aafbf3cshufddrdt",
+						"eastus",
+						"azurecontainer",
+						"io"
 					],
-					"port": "8082",
+					"port": "8090",
 					"path": [
 						"passive-accounts",
-						"store"
+						"saveCurrentPersonalAccount"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Guardar cuenta ahorro cliente natural",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"personCode\": \"11079cc6-6fca-4804-85bb-0c120cfc3273\",\r\n    \"accountAmount\": 1000.0,\r\n    \"accountBalance\": 1000.0,\r\n    \"transactionCommission\": 10.0,\r\n    \"maximumTransactionsWithoutCommission\": 10\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://bank-gateway.aafbf3cshufddrdt.eastus.azurecontainer.io:8090/passive-accounts/saveSavingPersonalAccount",
+					"protocol": "http",
+					"host": [
+						"bank-gateway",
+						"aafbf3cshufddrdt",
+						"eastus",
+						"azurecontainer",
+						"io"
+					],
+					"port": "8090",
+					"path": [
+						"passive-accounts",
+						"saveSavingPersonalAccount"
 					]
 				}
 			},
@@ -111,7 +139,7 @@
 				"header": [],
 				"body": {
 					"mode": "raw",
-					"raw": "{\r\n    \"accountType\": \"FIX_TERM_ACCOUNT\",\r\n    \"personType\": \"NATURAL_PERSON\",\r\n    \"personCode\": \"d2dabcb7-6014-496b-a0a1-a2ea1586830b\",\r\n    \"dayMovementAvailable\": \"15\"\r\n}",
+					"raw": "{\r\n    \"personCode\": \"27e09701-9c05-4a9d-8b21-229dae3df4d0\",\r\n    \"accountAmount\": 1000.0,\r\n    \"accountBalance\": 1000.0,\r\n    \"maximumTransactions\": 1,\r\n    \"dayMovementAvailable\": 4,\r\n    \"transactionCommission\": 10.0,\r\n    \"maximumTransactionsWithoutCommission\": 10\r\n}",
 					"options": {
 						"raw": {
 							"language": "json"
@@ -119,15 +147,19 @@
 					}
 				},
 				"url": {
-					"raw": "http://localhost:8082/passive-accounts/store",
+					"raw": "http://bank-gateway.aafbf3cshufddrdt.eastus.azurecontainer.io:8090/passive-accounts/saveFixTermPersonalAccount",
 					"protocol": "http",
 					"host": [
-						"localhost"
+						"bank-gateway",
+						"aafbf3cshufddrdt",
+						"eastus",
+						"azurecontainer",
+						"io"
 					],
-					"port": "8082",
+					"port": "8090",
 					"path": [
 						"passive-accounts",
-						"store"
+						"saveFixTermPersonalAccount"
 					]
 				}
 			},
@@ -140,7 +172,7 @@
 				"header": [],
 				"body": {
 					"mode": "raw",
-					"raw": "{\r\n    \"accountType\": \"CURRENT_ACCOUNT\",\r\n    \"personType\": \"LEGAL_PERSON\",\r\n    \"personCode\": \"d2dabcb7-6014-496b-a0a1-a2ea1586830b\",\r\n    \"comission\": \"5.00\"\r\n}",
+					"raw": "{\r\n    \"personCode\": \"4c931f73-f13e-4647-be91-53f8d894f37f\",\r\n    \"accountAmount\": 1000.0,\r\n    \"accountBalance\": 1000.0,\r\n    \"transactionCommission\": 10.0,\r\n    \"maximumTransactionsWithoutCommission\": 10\r\n}",
 					"options": {
 						"raw": {
 							"language": "json"
@@ -148,102 +180,145 @@
 					}
 				},
 				"url": {
-					"raw": "http://localhost:8082/passive-accounts/store",
+					"raw": "http://bank-gateway.aafbf3cshufddrdt.eastus.azurecontainer.io:8090/passive-accounts/saveCurrentEnterpriseAccount",
 					"protocol": "http",
 					"host": [
-						"localhost"
+						"bank-gateway",
+						"aafbf3cshufddrdt",
+						"eastus",
+						"azurecontainer",
+						"io"
 					],
-					"port": "8082",
+					"port": "8090",
 					"path": [
 						"passive-accounts",
-						"store"
+						"saveCurrentEnterpriseAccount"
 					]
 				}
 			},
 			"response": []
 		},
 		{
-			"name": "Agregar Titular a cuenta corriente",
+			"name": "Guardar cuenta VIP cliente natural",
 			"request": {
 				"method": "POST",
 				"header": [],
-				"body": {
-					"mode": "raw",
-					"raw": "{\r\n    \"passiveAccountCode\": \"0f2aba62-ea54-4dab-95ca-01d93f3822a8\",\r\n    \"legalHolderType\":\"HOLDER\",\r\n    \"names\": \"Roberto Sanchez\"\r\n}",
-					"options": {
-						"raw": {
-							"language": "json"
-						}
-					}
-				},
 				"url": {
-					"raw": "http://localhost:8082/legal-holder/store",
+					"raw": "http://bank-gateway.aafbf3cshufddrdt.eastus.azurecontainer.io:8090/passive-accounts/saveVipPersonalAccount/302616c2-d255-4e51-81e3-1e38f116af14/0.0",
 					"protocol": "http",
 					"host": [
-						"localhost"
+						"bank-gateway",
+						"aafbf3cshufddrdt",
+						"eastus",
+						"azurecontainer",
+						"io"
 					],
-					"port": "8082",
+					"port": "8090",
 					"path": [
-						"legal-holder",
-						"store"
+						"passive-accounts",
+						"saveVipPersonalAccount",
+						"302616c2-d255-4e51-81e3-1e38f116af14",
+						"0.0"
 					]
 				}
 			},
 			"response": []
 		},
 		{
-			"name": "Agregar Firmante autorizado a cuenta corriente",
+			"name": "Guardar cuenta PYME cliente enterprise",
 			"request": {
 				"method": "POST",
 				"header": [],
-				"body": {
-					"mode": "raw",
-					"raw": "{\r\n    \"passiveAccountCode\": \"0f2aba62-ea54-4dab-95ca-01d93f3822a8\",\r\n    \"legalHolderType\":\"AUTHORIZED_SIGNATORY\",\r\n    \"names\": \"Roberto Sanchez\"\r\n}",
-					"options": {
-						"raw": {
-							"language": "json"
-						}
-					}
-				},
 				"url": {
-					"raw": "http://localhost:8082/legal-holder/store",
+					"raw": "http://bank-gateway.aafbf3cshufddrdt.eastus.azurecontainer.io:8090/passive-accounts/savePymeEnterpriseAccount/1644eca0-d750-4ca5-b925-37764e53a923",
 					"protocol": "http",
 					"host": [
-						"localhost"
+						"bank-gateway",
+						"aafbf3cshufddrdt",
+						"eastus",
+						"azurecontainer",
+						"io"
 					],
-					"port": "8082",
+					"port": "8090",
 					"path": [
-						"legal-holder",
-						"store"
+						"passive-accounts",
+						"savePymeEnterpriseAccount",
+						"1644eca0-d750-4ca5-b925-37764e53a923"
 					]
 				}
 			},
 			"response": []
 		},
 		{
-			"name": "Agregar movimiento de tipo retiro",
+			"name": "Obtener saldo de una cuenta",
 			"request": {
-				"method": "POST",
+				"method": "GET",
 				"header": [],
-				"body": {
-					"mode": "raw",
-					"raw": "{\r\n    \"passiveAccountCode\": \"0f2aba62-ea54-4dab-95ca-01d93f3822a8\",\r\n    \"movementType\":\"WITHDRAWAL\",\r\n    \"amount\": \"100.00\"\r\n}",
-					"options": {
-						"raw": {
-							"language": "json"
-						}
-					}
-				},
 				"url": {
-					"raw": "http://localhost:8082/movement/store",
+					"raw": "http://bank-gateway.aafbf3cshufddrdt.eastus.azurecontainer.io:8090/passive-accounts/getAccountBalance/b31b2795-6f4d-4266-967a-29fabd1ea8dd",
 					"protocol": "http",
 					"host": [
-						"localhost"
+						"bank-gateway",
+						"aafbf3cshufddrdt",
+						"eastus",
+						"azurecontainer",
+						"io"
 					],
-					"port": "8082",
+					"port": "8090",
+					"path": [
+						"passive-accounts",
+						"getAccountBalance",
+						"b31b2795-6f4d-4266-967a-29fabd1ea8dd"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Verificar si cuenta existe",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://bank-gateway.aafbf3cshufddrdt.eastus.azurecontainer.io:8090/passive-accounts/checkIfExist/302616c2-d255-4e51-81e3-1e38f116af14",
+					"protocol": "http",
+					"host": [
+						"bank-gateway",
+						"aafbf3cshufddrdt",
+						"eastus",
+						"azurecontainer",
+						"io"
+					],
+					"port": "8090",
+					"path": [
+						"passive-accounts",
+						"checkIfExist",
+						"302616c2-d255-4e51-81e3-1e38f116af14"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Movimientos de una cuenta",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://bank-gateway.aafbf3cshufddrdt.eastus.azurecontainer.io:8090/movement/getByAccountNumber/b31b2795-6f4d-4266-967a-29fabd1ea8dd",
+					"protocol": "http",
+					"host": [
+						"bank-gateway",
+						"aafbf3cshufddrdt",
+						"eastus",
+						"azurecontainer",
+						"io"
+					],
+					"port": "8090",
 					"path": [
 						"movement",
-						"store"
+						"getByAccountNumber",
+						"b31b2795-6f4d-4266-967a-29fabd1ea8dd"
 					]
 				}
 			},
@@ -256,7 +331,7 @@
 				"header": [],
 				"body": {
 					"mode": "raw",
-					"raw": "{\r\n    \"passiveAccountCode\": \"0f2aba62-ea54-4dab-95ca-01d93f3822a8\",\r\n    \"movementType\":\"DEPOSIT\",\r\n    \"amount\": \"100.00\"\r\n}",
+					"raw": "{\r\n    \"accountNumberDestination\": \"302616c2-d255-4e51-81e3-1e38f116af14\",\r\n    \"amount\":\"10.0\"\r\n}",
 					"options": {
 						"raw": {
 							"language": "json"
@@ -264,36 +339,245 @@
 					}
 				},
 				"url": {
-					"raw": "http://localhost:8082/movement/store",
+					"raw": "http://bank-gateway.aafbf3cshufddrdt.eastus.azurecontainer.io:8090/movement/saveDeposit",
 					"protocol": "http",
 					"host": [
-						"localhost"
+						"bank-gateway",
+						"aafbf3cshufddrdt",
+						"eastus",
+						"azurecontainer",
+						"io"
 					],
-					"port": "8082",
+					"port": "8090",
 					"path": [
 						"movement",
-						"store"
+						"saveDeposit"
 					]
 				}
 			},
 			"response": []
 		},
 		{
-			"name": "Listar movimientos de una cuenta bancaria",
+			"name": "Agregar movimiento de tipo retiro",
 			"request": {
-				"method": "GET",
+				"method": "POST",
 				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"accountNumberDestination\": \"302616c2-d255-4e51-81e3-1e38f116af14\",\r\n    \"amount\":\"10.0\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
 				"url": {
-					"raw": "http://localhost:8082/movement/findAll/0f2aba62-ea54-4dab-95ca-01d93f3822a8",
+					"raw": "http://bank-gateway.aafbf3cshufddrdt.eastus.azurecontainer.io:8090/movement/saveWithdrawal",
 					"protocol": "http",
 					"host": [
-						"localhost"
+						"bank-gateway",
+						"aafbf3cshufddrdt",
+						"eastus",
+						"azurecontainer",
+						"io"
 					],
-					"port": "8082",
+					"port": "8090",
 					"path": [
 						"movement",
-						"findAll",
-						"0f2aba62-ea54-4dab-95ca-01d93f3822a8"
+						"saveWithdrawal"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Transferir a cuenta del mismo titular",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"accountNumberSource\": \"302616c2-d255-4e51-81e3-1e38f116af14\",\r\n    \"accountNumberDestination\": \"0dece4e2-75c1-4448-a913-ac29a4f07103\",\r\n    \"amount\":\"10.0\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://bank-gateway.aafbf3cshufddrdt.eastus.azurecontainer.io:8090/movement/saveTransferWithSameAccount",
+					"protocol": "http",
+					"host": [
+						"bank-gateway",
+						"aafbf3cshufddrdt",
+						"eastus",
+						"azurecontainer",
+						"io"
+					],
+					"port": "8090",
+					"path": [
+						"movement",
+						"saveTransferWithSameAccount"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Transferir a cuentas de terceros",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"accountNumberSource\": \"302616c2-d255-4e51-81e3-1e38f116af14\",\r\n    \"accountNumberDestination\": \"0dece4e2-75c1-4448-a913-ac29a4f07103\",\r\n    \"amount\":\"10.0\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://bank-gateway.aafbf3cshufddrdt.eastus.azurecontainer.io:8090/movement/saveTransferThirdAccount",
+					"protocol": "http",
+					"host": [
+						"bank-gateway",
+						"aafbf3cshufddrdt",
+						"eastus",
+						"azurecontainer",
+						"io"
+					],
+					"port": "8090",
+					"path": [
+						"movement",
+						"saveTransferThirdAccount"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Guardar tarjeta de debito",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"debitCardNumber\": \"123654123\",\r\n    \"personCode\":\"11079cc6-6fca-4804-85bb-0c120cfc3273\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://bank-gateway.aafbf3cshufddrdt.eastus.azurecontainer.io:8090/debitcard/save",
+					"protocol": "http",
+					"host": [
+						"bank-gateway",
+						"aafbf3cshufddrdt",
+						"eastus",
+						"azurecontainer",
+						"io"
+					],
+					"port": "8090",
+					"path": [
+						"debitcard",
+						"save"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Pagar con tarjeta de debito",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n\"debitCardNumber\":\"123654123\",\r\n\"personCode\":\"11079cc6-6fca-4804-85bb-0c120cfc3273\",\r\n\"accountNumberDestination\":\"b31b2795-6f4d-4266-967a-29fabd1ea8dd\",\r\n\"amount\":10.0\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://bank-gateway.aafbf3cshufddrdt.eastus.azurecontainer.io:8090/movement/saveWithdrawalWithDebitCard",
+					"protocol": "http",
+					"host": [
+						"bank-gateway",
+						"aafbf3cshufddrdt",
+						"eastus",
+						"azurecontainer",
+						"io"
+					],
+					"port": "8090",
+					"path": [
+						"movement",
+						"saveWithdrawalWithDebitCard"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Asociar cuenta principal a tarjeta de credito",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://bank-gateway.aafbf3cshufddrdt.eastus.azurecontainer.io:8090/debitcard/updateMainAccountNumber/123654123/302616c2-d255-4e51-81e3-1e38f116af14",
+					"protocol": "http",
+					"host": [
+						"bank-gateway",
+						"aafbf3cshufddrdt",
+						"eastus",
+						"azurecontainer",
+						"io"
+					],
+					"port": "8090",
+					"path": [
+						"debitcard",
+						"updateMainAccountNumber",
+						"123654123",
+						"302616c2-d255-4e51-81e3-1e38f116af14"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Asociar tarjeta de debito a cuenta",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"url": {
+					"raw": "http://bank-gateway.aafbf3cshufddrdt.eastus.azurecontainer.io:8090/passive-accounts/updateCreditDebitNumber/123654123/302616c2-d255-4e51-81e3-1e38f116af14",
+					"protocol": "http",
+					"host": [
+						"bank-gateway",
+						"aafbf3cshufddrdt",
+						"eastus",
+						"azurecontainer",
+						"io"
+					],
+					"port": "8090",
+					"path": [
+						"passive-accounts",
+						"updateCreditDebitNumber",
+						"123654123",
+						"302616c2-d255-4e51-81e3-1e38f116af14"
 					]
 				}
 			},
@@ -305,10 +589,13 @@
 				"method": "GET",
 				"header": [],
 				"url": {
-					"raw": "http://localhost:8082/actuator",
-					"protocol": "http",
+					"raw": "passive-accounts.gmgkeqdbdmcseec6.eastus2.azurecontainer.io:8082/actuator",
 					"host": [
-						"localhost"
+						"passive-accounts",
+						"gmgkeqdbdmcseec6",
+						"eastus2",
+						"azurecontainer",
+						"io"
 					],
 					"port": "8082",
 					"path": [

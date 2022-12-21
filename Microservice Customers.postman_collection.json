@@ -1,0 +1,233 @@
+{
+	"info": {
+		"_postman_id": "0156d940-fd45-4aca-9c37-9f1375bd4c80",
+		"name": "Microservice Customers",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Listado de clientes sin gateway",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"accountType\": \"CURRENT_ACCOUNT\",\r\n    \"personType\": \"NATURAL_PERSON\",\r\n    \"personCode\": \"d2dabcb7-6014-496b-a0a1-a2ea1586830b\",\r\n    \"comission\": \"5.00\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://bank-customers.afckgbbwaxfyacce.eastus.azurecontainer.io:8081/person/getCustomers",
+					"protocol": "http",
+					"host": [
+						"bank-customers",
+						"afckgbbwaxfyacce",
+						"eastus",
+						"azurecontainer",
+						"io"
+					],
+					"port": "8081",
+					"path": [
+						"person",
+						"getCustomers"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Listado de clientes",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://bank-gateway.aafbf3cshufddrdt.eastus.azurecontainer.io:8090/person/getCustomers",
+					"protocol": "http",
+					"host": [
+						"bank-gateway",
+						"aafbf3cshufddrdt",
+						"eastus",
+						"azurecontainer",
+						"io"
+					],
+					"port": "8090",
+					"path": [
+						"person",
+						"getCustomers"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Guardar un cliente natural",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"firstName\": \"ROBERTO HENRY\",\r\n    \"lastName\": \"DELGADO LIZARBE\",\r\n    \"numberDocument\": \"70498367\"\r\n    }",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://bank-gateway.aafbf3cshufddrdt.eastus.azurecontainer.io:8090/person/saveCustomerPersonal",
+					"protocol": "http",
+					"host": [
+						"bank-gateway",
+						"aafbf3cshufddrdt",
+						"eastus",
+						"azurecontainer",
+						"io"
+					],
+					"port": "8090",
+					"path": [
+						"person",
+						"saveCustomerPersonal"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Guardar un cliente empresa",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"companyName\": \"EXAMPLE EIRL\",\r\n    \"ruc\": \"1050598455\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://bank-gateway.aafbf3cshufddrdt.eastus.azurecontainer.io:8090/person/saveCustomerEnterprise",
+					"protocol": "http",
+					"host": [
+						"bank-gateway",
+						"aafbf3cshufddrdt",
+						"eastus",
+						"azurecontainer",
+						"io"
+					],
+					"port": "8090",
+					"path": [
+						"person",
+						"saveCustomerEnterprise"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Verifica si cliente existe",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://bank-gateway.aafbf3cshufddrdt.eastus.azurecontainer.io:8090/person/checkIfCustomerExist/4c931f73-f13e-4647-be91-53f8d894f37f",
+					"protocol": "http",
+					"host": [
+						"bank-gateway",
+						"aafbf3cshufddrdt",
+						"eastus",
+						"azurecontainer",
+						"io"
+					],
+					"port": "8090",
+					"path": [
+						"person",
+						"checkIfCustomerExist",
+						"4c931f73-f13e-4647-be91-53f8d894f37f"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Verifica si es cliente natural",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://bank-gateway.aafbf3cshufddrdt.eastus.azurecontainer.io:8090/person/checkIfCustomerPersonal/4c931f73-f13e-4647-be91-53f8d894f37f",
+					"protocol": "http",
+					"host": [
+						"bank-gateway",
+						"aafbf3cshufddrdt",
+						"eastus",
+						"azurecontainer",
+						"io"
+					],
+					"port": "8090",
+					"path": [
+						"person",
+						"checkIfCustomerPersonal",
+						"4c931f73-f13e-4647-be91-53f8d894f37f"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Verifica si es cliente empresa",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://bank-gateway.aafbf3cshufddrdt.eastus.azurecontainer.io:8090/person/checkIfCustomerEnterprise/4c931f73-f13e-4647-be91-53f8d894f37f",
+					"protocol": "http",
+					"host": [
+						"bank-gateway",
+						"aafbf3cshufddrdt",
+						"eastus",
+						"azurecontainer",
+						"io"
+					],
+					"port": "8090",
+					"path": [
+						"person",
+						"checkIfCustomerEnterprise",
+						"4c931f73-f13e-4647-be91-53f8d894f37f"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Actuator",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://bank-customers.afckgbbwaxfyacce.eastus.azurecontainer.io:8081/actuator",
+					"protocol": "http",
+					"host": [
+						"bank-customers",
+						"afckgbbwaxfyacce",
+						"eastus",
+						"azurecontainer",
+						"io"
+					],
+					"port": "8081",
+					"path": [
+						"actuator"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}

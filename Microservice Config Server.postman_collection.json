@@ -1,0 +1,84 @@
+{
+	"info": {
+		"_postman_id": "28c7070b-a9ee-47f8-b43c-d795d59f5627",
+		"name": "Microservice Config Server",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Obtener Discovery Server Conf",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://bank-config.f5b0gag7cydfdzg8.eastus.azurecontainer.io:8888/microservice-bank-discovery/default/main",
+					"protocol": "http",
+					"host": [
+						"bank-config",
+						"f5b0gag7cydfdzg8",
+						"eastus",
+						"azurecontainer",
+						"io"
+					],
+					"port": "8888",
+					"path": [
+						"microservice-bank-discovery",
+						"default",
+						"main"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Obtener Gateway Conf",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://bank-config.f5b0gag7cydfdzg8.eastus.azurecontainer.io:8888/microservice-bank-gateway/default/main",
+					"protocol": "http",
+					"host": [
+						"bank-config",
+						"f5b0gag7cydfdzg8",
+						"eastus",
+						"azurecontainer",
+						"io"
+					],
+					"port": "8888",
+					"path": [
+						"microservice-bank-gateway",
+						"default",
+						"main"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Obtener Passive Accounts Conf",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://bank-config.f5b0gag7cydfdzg8.eastus.azurecontainer.io:8888/microservice-passive-accounts/default/main",
+					"protocol": "http",
+					"host": [
+						"bank-config",
+						"f5b0gag7cydfdzg8",
+						"eastus",
+						"azurecontainer",
+						"io"
+					],
+					"port": "8888",
+					"path": [
+						"microservice-passive-accounts",
+						"default",
+						"main"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
